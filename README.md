@@ -4,7 +4,7 @@
 
 The federal government pays the same SNAP benefit in every state. A family of 4 in Mississippi receives the same $975/month as a family in New York City. But food costs are not the same. This project measures the adequacy gap and models what a geographic adjustment would cost.
 
-**[Live Dashboard →](#)** *(add Streamlit Cloud URL after deployment)*
+**[Live Dashboard →](https://xmsq6runmevuki9slx2ixn.streamlit.app/)**
 
 ---
 
