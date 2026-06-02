@@ -20,6 +20,11 @@ st.set_page_config(
 
 DB_PATH = Path(__file__).parent / "snap_adequacy.db"
 
+# Build DB from CSVs if it doesn't exist (e.g. on Streamlit Cloud)
+if not DB_PATH.exists():
+    import load_data
+    load_data.load()
+
 # ── Colors ────────────────────────────────────────────────────────────────────
 RED    = "#EF4444"
 GREEN  = "#22C55E"
