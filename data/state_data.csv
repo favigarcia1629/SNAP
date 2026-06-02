@@ -1,0 +1,52 @@
+state,state_code,food_price_index,snap_participants_thousands,poverty_rate,region,snap_adjusted
+Alabama,AL,95.8,876,16.4,South,No
+Alaska,AK,107.5,95,10.2,Pacific,Yes
+Arizona,AZ,101.2,1050,13.0,Mountain,No
+Arkansas,AR,94.6,527,16.0,South,No
+California,CA,108.4,4100,12.8,Pacific,No
+Colorado,CO,103.2,450,9.8,Mountain,No
+Connecticut,CT,107.1,380,9.4,Northeast,No
+Delaware,DE,102.8,143,12.2,Northeast,No
+Florida,FL,100.5,3050,13.2,South,No
+Georgia,GA,99.6,1550,14.1,South,No
+Hawaii,HI,113.2,180,9.2,Pacific,Yes
+Idaho,ID,99.3,220,11.2,Mountain,No
+Illinois,IL,102.1,1750,12.1,Midwest,No
+Indiana,IN,98.0,770,13.0,Midwest,No
+Iowa,IA,97.5,325,11.0,Midwest,No
+Kansas,KS,97.2,270,11.8,Midwest,No
+Kentucky,KY,96.0,780,15.8,South,No
+Louisiana,LA,97.1,900,18.0,South,No
+Maine,ME,102.5,250,11.6,Northeast,No
+Maryland,MD,106.8,740,9.3,Northeast,No
+Massachusetts,MA,107.4,790,9.0,Northeast,No
+Michigan,MI,98.8,1480,13.4,Midwest,No
+Minnesota,MN,101.8,520,9.8,Midwest,No
+Mississippi,MS,93.5,640,19.1,South,No
+Missouri,MO,97.8,800,13.0,South,No
+Montana,MT,98.5,120,12.3,Mountain,No
+Nebraska,NE,97.8,205,10.0,Midwest,No
+Nevada,NV,103.1,390,12.5,Mountain,No
+New Hampshire,NH,103.4,113,7.1,Northeast,No
+New Jersey,NJ,107.2,910,9.4,Northeast,No
+New Mexico,NM,97.0,450,18.0,Mountain,No
+New York,NY,110.1,3200,13.2,Northeast,No
+North Carolina,NC,99.2,1300,13.7,South,No
+North Dakota,ND,97.5,72,9.8,Midwest,No
+Ohio,OH,98.5,1560,13.0,Midwest,No
+Oklahoma,OK,95.7,610,15.3,South,No
+Oregon,OR,104.8,680,11.8,Pacific,No
+Pennsylvania,PA,100.8,1820,12.0,Northeast,No
+Rhode Island,RI,103.7,175,11.5,Northeast,No
+South Carolina,SC,97.5,740,13.9,South,No
+South Dakota,SD,97.0,90,11.2,Midwest,No
+Tennessee,TN,97.5,1100,14.0,South,No
+Texas,TX,99.2,3800,14.0,South,No
+Utah,UT,101.0,270,8.8,Mountain,No
+Vermont,VT,104.9,95,10.5,Northeast,No
+Virginia,VA,101.5,820,10.7,South,No
+Washington,WA,105.7,920,10.4,Pacific,No
+West Virginia,WV,94.3,330,17.1,South,No
+Wisconsin,WI,100.9,600,11.0,Midwest,No
+Wyoming,WY,97.2,42,10.3,Mountain,No
+District of Columbia,DC,110.5,148,14.5,Northeast,No
