@@ -2,7 +2,6 @@
 SNAP Adequacy Analyzer — Streamlit Dashboard
 Usage: streamlit run app.py
 """
-import sqlite3
 from pathlib import Path
 
 import numpy as np
@@ -18,12 +17,7 @@ st.set_page_config(
     layout="wide",
 )
 
-DB_PATH = Path(__file__).parent / "snap_adequacy.db"
-
-# Build DB from CSVs if it doesn't exist (e.g. on Streamlit Cloud)
-if not DB_PATH.exists():
-    import load_data
-    load_data.load()
+DATA_DIR = Path(__file__).parent / "data"
 
 # ── Colors ────────────────────────────────────────────────────────────────────
 RED    = "#EF4444"
@@ -38,11 +32,41 @@ DARK   = "#111827"
 # ── Data ──────────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    conn = sqlite3.connect(DB_PATH)
-    df        = pd.read_sql("SELECT * FROM gap_analysis", conn)
-    allotments = pd.read_sql("SELECT * FROM snap_allotments", conn)
-    conn.close()
-    return df, allotments
+    allotments = pd.read_csv(DATA_DIR / "snap_allotments.csv")
+    s = pd.read_csv(DATA_DIR / "state_data.csv")
+
+    # Replicate the gap_analysis SQL view in pandas
+    s["benefit_1"]          = 292.0
+    s["adjusted_benefit_1"] = (292.0 * (s["food_price_index"] / 100.0)).round(2)
+    s["gap_1"]              = (s["adjusted_benefit_1"] - 292.0).round(2)
+
+    s["benefit_4"]          = 975.0
+    s["adjusted_benefit_4"] = (975.0 * (s["food_price_index"] / 100.0)).round(2)
+    s["gap_4"]              = (s["adjusted_benefit_4"] - 975.0).round(2)
+
+    s["gap_per_person"]     = (s["gap_4"] / 4.0).round(2)
+
+    s["annual_cost_billions"] = np.where(
+        s["gap_4"] > 0,
+        (s["gap_4"] / 4.0 * s["snap_participants_thousands"] * 1000.0 * 12.0 / 1e9).round(3),
+        0.0,
+    )
+
+    def adequacy_status(row):
+        if row["snap_adjusted"] == "Yes":
+            return "Already Adjusted"
+        elif row["gap_4"] > 50:
+            return "Severely Underfunded"
+        elif row["gap_4"] > 0:
+            return "Underfunded"
+        elif row["gap_4"] > -30:
+            return "Near Adequate"
+        else:
+            return "Overfunded"
+
+    s["adequacy_status"] = s.apply(adequacy_status, axis=1)
+
+    return s, allotments
 
 df, allotments = load_data()
 df_48 = df[df["snap_adjusted"] == "No"].copy()
